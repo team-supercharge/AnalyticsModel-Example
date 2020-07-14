@@ -2,7 +2,6 @@ package io.supercharge.hiltexample.main.ui
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,30 +11,22 @@ import android.widget.TextView
 import androidx.core.app.NotificationCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asFlow
 import androidx.lifecycle.lifecycleScope
-import dagger.android.support.AndroidSupportInjection
+import dagger.hilt.android.AndroidEntryPoint
 import io.supercharge.hiltexample.R
 import io.supercharge.hiltexample.main.model.MainMenuViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainMenuFragment : Fragment() {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
+    private val viewModel: MainMenuViewModel by viewModels()
 
     @Inject
     lateinit var notificationManager: NotificationManager
-
-    private val viewModel = viewModels<MainMenuViewModel>(factoryProducer = { viewModelFactory })
-
-    override fun onAttach(context: Context) {
-        AndroidSupportInjection.inject(this)
-        super.onAttach(context)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,7 +37,7 @@ class MainMenuFragment : Fragment() {
 
         val textView = view.findViewById<TextView>(R.id.text)
 
-        viewModel.value.textValue.asFlow()
+        viewModel.textValue.asFlow()
             .onEach { text ->
                 textView.text = text
                 createNotification(text)
