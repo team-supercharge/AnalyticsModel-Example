@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="io.supercharge.hiltexample.io.supercharge.hiltexample.analytics.AnalyticsConstants.Event" />
+
         <variable
             name="vm"
             type="io.supercharge.hiltexample.main.model.CounterViewModel" />
@@ -34,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/decrement"
+            app:analyticsEvent="@{Event.DECREMENT_CLICKED}"
             app:command="@{vm.decrementValue}"
             app:layout_constraintEnd_toStartOf="@id/incrementButton"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/increment"
+            app:analyticsEvent="@{Event.INCREMENT_CLICKED}"
             app:command="@{vm.incrementValue}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/decrementButton"
