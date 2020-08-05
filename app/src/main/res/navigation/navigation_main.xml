@@ -7,6 +7,6 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="io.supercharge.hiltexample.main.ui.MainMenuFragment"
-        tools:layout="@layout/fragment_main" />
+        android:name="io.supercharge.hiltexample.main.ui.CounterFragment"
+        tools:layout="@layout/fragment_counter" />
 </navigation>

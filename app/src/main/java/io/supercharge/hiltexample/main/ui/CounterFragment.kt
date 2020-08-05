@@ -9,14 +9,14 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import io.supercharge.hiltexample.R
 import io.supercharge.hiltexample.BR
-import io.supercharge.hiltexample.main.model.MainMenuViewModel
+import io.supercharge.hiltexample.R
+import io.supercharge.hiltexample.main.model.CounterViewModel
 
 @AndroidEntryPoint
-class MainMenuFragment : Fragment() {
+class CounterFragment : Fragment() {
 
-    private val viewModel: MainMenuViewModel by viewModels()
+    private val viewModel: CounterViewModel by viewModels()
 
     private var binding: ViewDataBinding? = null
 
@@ -27,7 +27,7 @@ class MainMenuFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_main,
+            R.layout.fragment_counter,
             container,
             false
         )
@@ -38,7 +38,7 @@ class MainMenuFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.run {
-            lifecycleOwner = this@MainMenuFragment
+            lifecycleOwner = this@CounterFragment
             setVariable(BR.vm, viewModel)
             executePendingBindings()
         }

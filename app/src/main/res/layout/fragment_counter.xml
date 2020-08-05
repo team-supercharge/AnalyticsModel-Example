@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="io.supercharge.hiltexample.main.model.MainMenuViewModel" />
+            type="io.supercharge.hiltexample.main.model.CounterViewModel" />
 
     </data>
 
