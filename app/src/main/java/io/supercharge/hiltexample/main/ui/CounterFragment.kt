@@ -11,14 +11,28 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import io.supercharge.hiltexample.BR
 import io.supercharge.hiltexample.R
+import io.supercharge.hiltexample.analytics.AnalyticsModelProvider
+import io.supercharge.hiltexample.io.supercharge.hiltexample.main.model.CounterAnalyticsModel
 import io.supercharge.hiltexample.main.model.CounterViewModel
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class CounterFragment : Fragment() {
 
+    @Inject
+    internal lateinit var analyticsModelProvider: AnalyticsModelProvider
+    private var analyticsModel: CounterAnalyticsModel? = null
+
     private val viewModel: CounterViewModel by viewModels()
 
     private var binding: ViewDataBinding? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        analyticsModel = analyticsModelProvider[CounterAnalyticsModel::class.java]
+        analyticsModel?.setScreenViewModel(viewModel)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
