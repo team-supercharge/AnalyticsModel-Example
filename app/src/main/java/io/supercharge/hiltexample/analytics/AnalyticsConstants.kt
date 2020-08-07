@@ -6,4 +6,8 @@ object AnalyticsConstants {
         INCREMENT_CLICKED,
         DECREMENT_CLICKED
     }
+
+    enum class Param {
+        VALUE
+    }
 }

@@ -6,8 +6,9 @@ import javax.inject.Inject
 class DefaultAnalyticsTracker @Inject constructor() : AnalyticsTracker {
 
     override fun logEvent(
-        event: AnalyticsConstants.Event
+        event: AnalyticsConstants.Event,
+        vararg params: Pair<AnalyticsConstants.Param, Any>
     ) {
-        Log.i("AnalyticsLog", "Event: $event")
+        Log.i("AnalyticsLog", "Event: $event, Params: ${params.toList()}")
     }
 }
