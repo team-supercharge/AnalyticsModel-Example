@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HiltExample</string>
+    <string name="app_name">AnalyticsModel Example</string>
     <string name="value">Value: %d</string>
     <string name="decrement">Decrement</string>
     <string name="increment">Increment</string>
