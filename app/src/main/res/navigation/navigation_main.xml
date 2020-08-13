@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_main.xml"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/counterFragment">
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="io.supercharge.hiltexample.main.ui.MainMenuFragment"
-        tools:layout="@layout/fragment_main" />
+        android:id="@+id/counterFragment"
+        android:name="io.supercharge.hiltexample.main.ui.CounterFragment"
+        tools:layout="@layout/fragment_counter" />
+
 </navigation>
