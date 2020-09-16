@@ -10,8 +10,7 @@ class CounterViewModel @ViewModelInject internal constructor() : ViewModel() {
 
     private val _value = MutableLiveData(0)
 
-    val value: LiveData<Int>
-        get() = _value
+    val value: LiveData<Int> = _value
 
     val incrementValue = FunctionCommand {
         _value.postValue(_value.value!! + 1)
